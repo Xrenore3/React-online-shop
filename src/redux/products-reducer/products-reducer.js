@@ -1,4 +1,4 @@
-import products from "../../data/products.json";
+import products from "../../data/products.js";
 
 const SORT_BY_TYPE = "SORT_BY_TYPE";
 const ADD_ALL_TYPES = "ADD_ALL_TYPES";
@@ -13,11 +13,7 @@ const productsReducer = (state = initialState, action) => {
       } else {
         return {
           ...state,
-          products: products.filter((product) => {
-            if (product.type === action.boilerType) {
-              return product;
-            }
-          }),
+          products: products.filter(product => product.type === action.boilerType),
         };
       }
     }

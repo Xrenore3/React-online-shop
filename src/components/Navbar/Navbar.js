@@ -4,6 +4,7 @@ import { links, social } from "../../data/navbar-data.js";
 import { GiFlame } from "react-icons/gi";
 import classes from "./Navbar.module.css";
 
+
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
@@ -42,6 +43,7 @@ const Navbar = () => {
             })}
           </ul>
         </div>
+        <button >showCart</button>
 
         <ul className={classes.socialIcons}>
           {social.map((link) => {

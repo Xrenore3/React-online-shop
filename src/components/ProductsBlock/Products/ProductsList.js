@@ -1,26 +1,29 @@
 import React from "react";
 import ProductCart from "./ProductCart";
-const ProductList = ({ products }) => {
+import styled from 'styled-components';
+
+const ProductList = ({ products,addProductToCart }) => {
   const productList = products.map((product) => {
-    const { id, type, title, image, description, price } = product;
+    const { id } = product;
     return (
       <ProductCart
         key={id}
-        id={id}
-        type={type}
-        title={title}
-        image={image}
-        description={description}
-        price={price}
+        product={product}
+        addProductToCart={addProductToCart}
       />
     );
   });
   return (
-    <div>
-      <article>{productList}</article>
-    </div>
+    <Wrapper>
+      {productList}
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.section`
+  display: grid;
+  grid-template-columns: repeat(3,1fr)
+`
 
 
 

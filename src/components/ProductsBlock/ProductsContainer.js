@@ -6,16 +6,18 @@ import {
 } from "../../redux/products-reducer/products-reducer.js";
 import FilterButtonContainer from "./FiltersButton/FilterButtonContainer.js";
 import ProductList from "./Products/ProductsList.js";
+import { addProductToCart } from './../../redux/cart-reducer/cart-reducer';
 
-const ProductsContainer = ({ products,allTypes, sorteByType, addAllTypes }) => {
-  useEffect(() => {
-    addAllTypes();
-  },[allTypes.length]);
-  return (
+const ProductsContainer = ({ products, allTypes, sorteByType, addAllTypes, addProductToCart }) => {
+  useEffect(() => { addAllTypes() }, []);
+    return (
     <section>
       <h2>Products</h2>
-      <FilterButtonContainer allTypes={allTypes} sorteByType={sorteByType}/>
-      <ProductList products={products} />
+      <FilterButtonContainer
+        allTypes={allTypes}
+        sorteByType={sorteByType}
+      />
+      <ProductList products={products} addProductToCart={addProductToCart} />
     </section>
   );
 };
@@ -26,6 +28,6 @@ const mapStateToProps = (state) => ({
 
 });
 
-export default connect(mapStateToProps, { sorteByType, addAllTypes })(
+export default connect(mapStateToProps, { sorteByType, addAllTypes, addProductToCart })(
   ProductsContainer
 );
