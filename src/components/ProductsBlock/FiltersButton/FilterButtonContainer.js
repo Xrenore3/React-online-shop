@@ -2,7 +2,6 @@ import React from "react";
 import FilterButton from "./FilterButton.js";
 
 const FilterButtonContainer = ({ allTypes, sorteByType }) => {
-  console.log(allTypes);
   const allButtons = allTypes.map((type) => {
     return (
       <FilterButton

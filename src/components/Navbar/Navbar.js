@@ -3,6 +3,7 @@ import { FaBars } from "react-icons/fa";
 import { links, social } from "../../data/navbar-data.js";
 import { GiFlame } from "react-icons/gi";
 import classes from "./Navbar.module.css";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -30,7 +31,6 @@ const Navbar = () => {
             <FaBars />
           </button>
         </div>
-
         <div className={classes.linksContainer} ref={linksContainerRef}>
           <ul className={classes.links} ref={linksRef}>
             {links.map((link) => {
@@ -42,9 +42,8 @@ const Navbar = () => {
               );
             })}
           </ul>
-        </div>
-        <button >showCart</button>
-
+        </div> 
+        <Link to='/cart'>showCart</Link>
         <ul className={classes.socialIcons}>
           {social.map((link) => {
             const { id, url, icon } = link;

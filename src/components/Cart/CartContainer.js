@@ -1,9 +1,9 @@
 import React from 'react'
 import CartItem from './CartItem'
 import { connect } from 'react-redux';
-import { addProductToCart } from './../../redux/cart-reducer/cart-reducer';
+import { deleteCartItems, increaseProductCount, decreaseProductCount, removeProduct } from '../../redux/cart-reducer/cart-reducer';
 
-const CartContainer = ({ total, cart }) => {
+const CartContainer = ({ total, cart, deleteCartItems, increaseProductCount, decreaseProductCount, removeProduct }) => {
   if (cart.length === 0) {
     return (
       <section className='cart'>
@@ -24,7 +24,12 @@ const CartContainer = ({ total, cart }) => {
       {/* cart items */}
       <div>
         {cart.map((item) => {
-          return <CartItem key={item.id} {...item} />
+          return <CartItem
+            key={item.id}
+            {...item}
+            increaseProductCount={increaseProductCount}
+            decreaseProductCount={decreaseProductCount}
+            removeProduct={removeProduct} />
         })}
       </div>
       {/* cart footer */}
@@ -37,7 +42,7 @@ const CartContainer = ({ total, cart }) => {
         </div>
         <button
           className='btn clear-btn'
-          onClick={() => { }}
+          onClick={deleteCartItems}
         >
           clear cart
         </button>
@@ -51,4 +56,9 @@ const mapStateToProps = (state) => ({
   total: state.cartData.total,
 })
 
-export default connect(mapStateToProps)(CartContainer)
+export default connect(mapStateToProps, {
+  deleteCartItems,
+  increaseProductCount,
+  decreaseProductCount,
+  removeProduct
+})(CartContainer)

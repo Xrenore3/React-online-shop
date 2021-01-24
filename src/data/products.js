@@ -1,6 +1,6 @@
 const products = [
   {
-    id: "1",
+    id: 1,
     type: "gaz",
     title: "Bosch Gaz 4000",
     image: "./img/products/bosch_gaz_4000.jpg",
@@ -11,7 +11,7 @@ const products = [
     amount: 1
   },
   {
-    id: "2",
+    id: 2,
     type: "gaz",
     title: "Bosch Gaz 6000",
     image: "./img/products/bosch_gaz_6000.jpg",
@@ -21,7 +21,7 @@ const products = [
     price: 18199,
     amount: 1
   }, {
-    id: "3",
+    id: 3,
     type: "gaz",
     title: "Buderus U44K",
     image: "./img/products/buderus_U44.jpg",
@@ -31,7 +31,7 @@ const products = [
     price: 15999,
     amount: 1
   }, {
-    id: "4",
+    id: 4,
     type: "gaz",
     title: "Buderus U72K",
     image: "./img/products/buderus_U72.jpg",
@@ -41,7 +41,7 @@ const products = [
     price: 18999,
     amount: 1
   }, {
-    id: "5",
+    id: 5,
     type: "electric",
     title: "Bosch Heat Tronic 3000",
     image: "./img/products/bosch_elec.jpg",
@@ -51,7 +51,7 @@ const products = [
     price: 16999,
     amount: 1
   }, {
-    id: "6",
+    id: 6,
     type: "electric",
     title: "Kospel ECOL 8",
     image: "./img/products/kospel.jpg",
@@ -61,7 +61,7 @@ const products = [
     price: 11999,
     amount: 1
   }, {
-    id: "7",
+    id: 7,
     title: "Bosch Heat Tronic 5000",
     type: "electric",
     image: "./img/products/bosch_elec5000.jpg",
@@ -72,7 +72,7 @@ const products = [
     amount: 1
   },
   {
-    id: "11",
+    id: 11,
     title: "Protherm Ckat 12",
     type: "electric",
     image: "./img/products/protherm.jpg",
@@ -83,7 +83,7 @@ const products = [
     amount: 1
   },
   {
-    id: "8",
+    id: 8,
     title: "Atmos DC 28 S",
     type: "solid fuel",
     image: "./img/products/atmos.jpg",
@@ -94,7 +94,7 @@ const products = [
     amount: 1
   },
   {
-    id: "9",
+    id: 9,
     title: "MCE 25 HW",
     type: "solid fuel",
     image: "./img/products/MCE.jpg",
@@ -105,7 +105,7 @@ const products = [
     amount: 1
   },
   {
-    id: "10",
+    id: 10,
     title: "Buderus logano 25",
     type: "solid fuel",
     image: "./img/products/buderus_logano.jpg",

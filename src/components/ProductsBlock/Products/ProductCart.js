@@ -2,7 +2,6 @@ import React from "react";
 import styled from 'styled-components';
 
 const ProductCart = ({product,addProductToCart}) => {
-  console.log(product)
   const { id, type, title, image, description, price } = product;
   return (
     <Wrapper>
