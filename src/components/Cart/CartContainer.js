@@ -1,9 +1,28 @@
 import React from 'react'
 import CartItem from './CartItem'
 import { connect } from 'react-redux';
-import { deleteCartItems, increaseProductCount, decreaseProductCount, removeProduct } from '../../redux/cart-reducer/cart-reducer';
+import { useEffect } from 'react';
+import {
+  deleteCartItems,
+  increaseProductCount,
+  decreaseProductCount,
+  removeProduct, getTotal
+} from '../../redux/cart-reducer/cart-reducer';
 
-const CartContainer = ({ total, cart, deleteCartItems, increaseProductCount, decreaseProductCount, removeProduct }) => {
+
+const CartContainer = ({
+  total,
+  cart,
+  deleteCartItems,
+  increaseProductCount,
+  decreaseProductCount,
+  removeProduct,
+  getTotal }) => {
+    console.log('render')
+  useEffect(() => {
+    getTotal()
+  }, [cart])
+
   if (cart.length === 0) {
     return (
       <section className='cart'>
@@ -15,6 +34,9 @@ const CartContainer = ({ total, cart, deleteCartItems, increaseProductCount, dec
       </section>
     )
   }
+
+  // update total and amount of cart items
+
   return (
     <section className='cart'>
       {/* cart header */}
@@ -60,5 +82,6 @@ export default connect(mapStateToProps, {
   deleteCartItems,
   increaseProductCount,
   decreaseProductCount,
-  removeProduct
+  removeProduct,
+  getTotal
 })(CartContainer)

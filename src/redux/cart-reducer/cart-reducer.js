@@ -3,6 +3,7 @@ const DELETE_ALL_PRODUCTS = 'DELETE_ALL_PRODUCTS';
 const INCREASE_PRODUCT_COUNT = 'INCREASE_PRODUCT_COUNT';
 const DECREASE_PRODUCT_COUNT = 'DECREASE_PRODUCT_COUNT';
 const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
+const GET_TOTAL = 'GET_TOTAL'
 
 
 const initialState = {
@@ -48,8 +49,21 @@ const cartReducer = (state = initialState, action) => {
             }
         }
         case REMOVE_PRODUCT: {
+
             return { ...state, cart: state.cart.filter(item => item.id !== action.id) }
         }
+        case GET_TOTAL: {
+            const totalAmount = state.cart.length;
+            let totalPrice = state.cart.reduce((cartTotal, cartItem) => {
+                const { price, amount } = cartItem;
+                return (cartTotal += price * amount)
+            }, 0)
+            return {
+                ...state, total: totalPrice, amount: totalAmount
+
+            }
+        }
+
         default: {
             return state
         }
@@ -76,5 +90,9 @@ export const removeProduct = (id) => ({
     type: REMOVE_PRODUCT,
     id
 })
+export const getTotal = () => (
+    { type: GET_TOTAL }
+)
+
 
 export default cartReducer

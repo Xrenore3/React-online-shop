@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 const ProductCart = ({product,addProductToCart}) => {
-  const { id, type, title, image, description, price } = product;
+  const {  title, image, description, price } = product;
   return (
     <Wrapper>
       <img src={image} alt={title} />
@@ -23,10 +23,8 @@ const Wrapper = styled.div`
   width: 400px;
   img {
     width:70%;
-    margin: 0 15%  }
-  
-    padding:20px;
-  
+    margin: 0 15%  }  
+    padding:20px; 
 `
 
 export default ProductCart;
